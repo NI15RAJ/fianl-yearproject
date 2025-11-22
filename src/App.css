@@ -1,38 +1,183 @@
-.App {
-  text-align: center;
+/* src/index.css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f7f9fb;
+  color: #111827;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.main-content {
+  padding: 1.5rem 3rem;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding: 0.75rem 3rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-right: 2rem;
+  color: #16a34a;
+  text-decoration: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #4b5563;
+  font-size: 0.95rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link.active {
+  color: #111827;
+  border-color: #16a34a;
+}
+
+.btn-primary,
+.btn-outline {
+  border-radius: 999px;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #16a34a;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-outline {
+  background: transparent;
+  color: #374151;
+  border-color: #d1d5db;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-primary:hover {
+  background-color: #15803d;
+}
+
+.btn-outline:hover {
+  border-color: #9ca3af;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Generic card + form styles reused everywhere */
+.form-card {
+  max-width: 520px;
+  margin: 1.5rem auto;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.form-card label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.85rem;
+}
+
+.form-card input,
+.form-card select {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+}
+
+.form-card input:focus,
+.form-card select:focus {
+  outline: none;
+  border-color: #16a34a;
+  box-shadow: 0 0 0 1px #16a34a33;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.error {
+  color: #b91c1c;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0.75rem 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  .main-content {
+    padding: 1.25rem 1rem;
+  }
+  .logo {
+    margin-right: 1rem;
+  }
+  .nav-left {
+    gap: 0.6rem;
   }
 }
